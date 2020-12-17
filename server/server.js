@@ -9,6 +9,8 @@ var port = 3000;
 app.use(morgan('dev'));
 app.use(express.static('client'));
 
+const db = require("./server/models");
+db.sequelize.sync();
 
 // Enable CORS on ExpressJS to avoid cross-origin errors when calling this server using AJAX
 // We are authorizing all domains to be able to manage information via AJAX (this is just for development)
